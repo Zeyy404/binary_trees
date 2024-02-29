@@ -1,10 +1,11 @@
 #include "binary_trees.h"
 
-void binary_tree_level(const binary_tree_t *tree, void (*func)(int), int level);
+void binary_tree_level(const binary_tree_t *tree,
+		       void (*func)(int), int level);
 size_t binary_tree_height(const binary_tree_t *tree);
 
 /**
- * bianry_tree_levelorder - goes through a bianry tree using
+ * binary_tree_levelorder - goes through a bianry tree using
  *                             level-order traversal
  * @tree: a pointer to the root node of the tree to traverse
  * @func: a pointer to a function to call each node.
