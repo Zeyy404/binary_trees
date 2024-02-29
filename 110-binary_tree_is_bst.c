@@ -1,6 +1,7 @@
 #include "binary_trees.h"
 
-int is_bst_recursive(const binary_tree_t *node, const int *min, const int *max);
+int is_bst_recursive(const binary_tree_t *node,
+		     const int *min, const int *max);
 
 /**
  * binary_tree_is_bst - checks if a binary tree is a valid binary seach tree
@@ -10,7 +11,7 @@ int is_bst_recursive(const binary_tree_t *node, const int *min, const int *max);
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (tree == NULL)
-		return (0);
+		return (1);
 
 	return (is_bst_recursive(tree, NULL, NULL));
 }
