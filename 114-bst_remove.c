@@ -1,5 +1,7 @@
 #include "binary_trees.h"
 
+bst_t *bst_find_successor(bst_t *root);
+
 /**
  * bst_remove - removes a node from a Binary Search Tree
  * @root: a pointer to the root node of the tree where you will remove a node
@@ -37,12 +39,22 @@ bst_t *bst_remove(bst_t *root, int value)
 			return (temp);
 		}
 
-		temp = root->right;
-		while (temp->left != NULL)
-			temp = temp->left;
+		temp = bst_find_successor(root->right);
 		root->n = temp->n;
 		root->right = bst_remove(root->right, temp->n);
 	}
 
 	return (root);
+}
+
+/**
+ * bst_find_successor - finds the node with the minimum value in a BST
+ * @root: a pointer to the root node of the BST
+ * Return: a pointer to the node with the minimum value
+ */
+bst_t *bst_find_successor(bst_t *root)
+{
+	while (root->left != NULL)
+		root = root->left;
+	return root;
 }
